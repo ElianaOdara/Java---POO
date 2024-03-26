@@ -8,7 +8,6 @@ public class Main {
         Computador pc1 = new Computador();
         Computador pc2 = new Computador();
         Computador pc3 = new Computador();
-        Computador[] pscComprados= new Computador[10];
         MemoriaUSB usbNova = new MemoriaUSB();
         Cliente novoCliente= new Cliente();
 
@@ -50,7 +49,6 @@ public class Main {
         pc3.sistemaOperacional.tipo= 64;
         pc3.addMemoriaUSB(usbNova);
 
-        float totalcompra = 0;
 
         // menu de Controle
         boolean controle=true;
@@ -63,10 +61,10 @@ public class Main {
             switch (opcao){
                 case 1:
                     System.out.println("Voce adquiriu o computador 1");
-                    totalcompra= totalcompra+pc1.preco;
-                    for (int i = 0; i<pscComprados.length; i++){
-                        if (pscComprados[i] == null) {
-                            pscComprados[i] = pc1;
+                    for (int i = 0; i<novoCliente.pscComprados.length; i++){
+                        if (novoCliente.pscComprados[i] == null) {
+                            novoCliente.pscComprados[i] = pc1;
+                            break;
 
                         }
                     }
@@ -74,10 +72,10 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Voce adquiriu o computador 2");
-                    totalcompra= totalcompra+pc2.preco;
-                    for (int i = 0; i<pscComprados.length; i++){
-                        if (pscComprados[i] == null) {
-                            pscComprados[i] = pc2;
+                    for (int i = 0; i<novoCliente.pscComprados.length; i++){
+                        if (novoCliente.pscComprados[i] == null) {
+                            novoCliente.pscComprados[i] = pc2;
+                            break;
 
                         }
                     }
@@ -85,10 +83,10 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Voce adquiriu o computador 3");
-                    totalcompra= totalcompra+pc3.preco;
-                    for (int i = 0; i<pscComprados.length; i++){
-                        if (pscComprados[i] == null) {
-                            pscComprados[i] = pc3;
+                    for (int i = 0; i<novoCliente.pscComprados.length; i++){
+                        if (novoCliente.pscComprados[i] == null) {
+                            novoCliente.pscComprados[i] = pc3;
+                            break;
 
                         }
                     }
@@ -104,12 +102,12 @@ public class Main {
         System.out.println("Cliente: " + novoCliente.nome);
         System.out.println("cpf: " + novoCliente.cpf);
         System.out.println("Informacoes dos pcs adquiridas:");
-        for (int i = 0; i< pscComprados.length; i++){
-            if (pscComprados[i] != null){
-                pscComprados[i].mostraPCConfigs();
+        for (int i = 0; i< novoCliente.pscComprados.length; i++){
+            if (novoCliente.pscComprados[i] != null){
+                novoCliente.pscComprados[i].mostraPCConfigs();
             }
         }
-        System.out.println("Total: " + totalcompra);
+        System.out.println("Total: " + novoCliente.calculaTotalCompra());
 
     }
 }
